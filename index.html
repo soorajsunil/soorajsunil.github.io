@@ -62,13 +62,18 @@
       color: var(--primary-color);
     }
 
-    a.cv-link {
+    a {
       color: #007BFF;
       text-decoration: none;
     }
 
-    a.cv-link:hover {
+    a:hover {
       text-decoration: underline;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0.5rem;
     }
 
     footer {
@@ -100,14 +105,15 @@
   </nav>
 
   <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a PhD student at the Univeristy of Windsor.
-        <br />
-        <a class="cv-link" href="https://github.com/soorajsunil/soorajsunil.github.io/blob/main/SSunilCV.pdf" target="_blank">View My CV</a>
-      </p>
-    </section>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I'm a PhD student at the University of Windsor working under Dr. Balakumar Balasingam.  
+    My research focuses on estimation, identification, and control in batteries.
+    <br />
+    <a href="https://github.com/soorajsunil/soorajsunil.github.io/blob/main/SSunilCV.pdf" target="_blank">View My CV</a>
+  </p>
+</section>
 
     <section id="projects">
       <h2>Projects</h2>
@@ -117,6 +123,13 @@
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:sunil11@uwindsor.ca">sunil11@uwindsor.ca</a></p>
+      <div class="social-links">
+        <p>
+          <a href="https://github.com/soorajsunil" target="_blank">GitHub</a> |
+          <a href="https://www.linkedin.com/in/sooraj-sunil/" target="_blank">LinkedIn</a> |
+          <a href="https://scholar.google.com/citations?user=mX2uugYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        </p>
+      </div>
     </section>
   </main>
 
