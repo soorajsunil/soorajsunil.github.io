@@ -1,64 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Site Title</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-        }
-        nav {
-            margin: 1rem 0;
-        }
-        nav a {
-            margin: 0 1rem;
-            text-decoration: none;
-            color: #4CAF50;
-        }
-        main {
-            padding: 2rem;
-        }
-        footer {
-            background-color: #f1f1f1;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sooraj Sunil - Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --light-gray: #f9f9f9;
+      --dark-text: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--dark-text);
+      background-color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      background: white;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #388E3C;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: var(--primary-color);
+    }
+
+    a.cv-link {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a.cv-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: var(--light-gray);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Sooraj Sunil</h1>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <main>
-        <section id="about">
-    <h2>About Me</h2>
-    <p>
-        <a href="https://github.com/soorajsunil/soorajsunil.github.io/blob/main/SSunilCV.pdf" target="_blank">
-            Link to my CV.
-        </a>
-    </p>
-</section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email:sunil11@uwindsor.ca</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Powered by Github and ChatGPT. </p>
-    </footer>
+  <header>
+    <h1>Sooraj Sunil</h1>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a developer passionate about building clean and effective web solutions.
+        <br />
+        <a class="cv-link" href="https://github.com/soorajsunil/soorajsunil.github.io/blob/main/SSunilCV.pdf" target="_blank">View My CV</a>
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Here’s a glimpse of the work I’ve done. (Add links or details here)</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sunil11@uwindsor.ca">sunil11@uwindsor.ca</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by GitHub and ChatGPT</p>
+  </footer>
 </body>
 </html>
