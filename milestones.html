@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Milestones - Sooraj Sunil</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .timeline {
+      border-left: 4px solid var(--primary-color);
+      margin-left: 1rem;
+      padding-left: 1.5rem;
+      list-style: none;
+    }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -1.1rem;
+      top: 0.3rem;
+      width: 10px;
+      height: 10px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+    }
+
+    .timeline time {
+      display: block;
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+  </style>
 </head>
 <body>
   <header><h1>Sooraj Sunil</h1></header>
@@ -19,12 +51,19 @@
   <main>
     <section>
       <h2>Milestones</h2>
-      <ul>
-        <li><strong>2025:</strong> Published first IEEE Transactions paper on battery modeling.</li>
-        <li><strong>2024:</strong> Presented research at IEEE I2MTC Conference in Ottawa.</li>
-        <li><strong>2023:</strong> Published collaborative SLAM paper in Sensors journal.</li>
-        <li><strong>2022:</strong> Started PhD at University of Windsor.</li>
-        <li><strong>2021:</strong> Completed MASc in ECE with SLAM thesis.</li>
+      <ul class="timeline">
+        <li>
+          <time>Jul 23, 2025</time>
+          Passed PhD comprehensive exam.
+        </li>
+        <li>
+          <time>Mar 24, 2025</time>
+          Published: <em>Piecewise Linear Approximation of Battery Open-Circuit Voltage Characteristics Using Dynamic Programming</em>, IEEE Transactions on Instrumentation and Measurement.
+        </li>
+        <li>
+          <time>Sept 5, 2023</time>
+          Started PhD in Electrical and Computer Engineering.
+        </li>
       </ul>
     </section>
   </main>
