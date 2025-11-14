@@ -2,26 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home - Sooraj Sunil</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header><h1>Sooraj Sunil</h1></header>
-  <nav>
-    <a href="index.html">Home</a>
+  <header>
+    <h1>Sooraj Sunil</h1>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
     <a href="about.html">About</a>
     <a href="cv.html">CV</a>
     <a href="research.html">Research</a>
     <a href="milestones.html">Milestones</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <main>
-    <section>
-      <h2>Welcome</h2>
-      <p>Welcome to my personal website. I'm a PhD student working on energy storage systems, estimation, and control. Use the navigation to learn more about me.</p>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Welcome</h2>
+        <p>
+      I'm a PhD student at University of Windsor researching on data driven system identification and control of energy storage systems, particularly Lithium-ion batteries.
+        </p>
+      </div>
+      
+      <div class="hero-image">
+        <img 
+          src="images/SSAlberta.jpg" 
+          alt="Photo taken at Banff National Park, 2023." 
+        />
+      </div>
     </section>
   </main>
-  <footer><p>Powered by GitHub and ChatGPT</p></footer>
+
+  <footer>
+    <p> 2025 Sooraj Sunil. </p>
+  </footer>
 </body>
 </html>
