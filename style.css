@@ -1,7 +1,17 @@
 :root {
-  --primary-color: #4CAF50;
-  --light-gray: #f9f9f9;
-  --dark-text: #333;
+  /* Color Palette Refinement */
+  --primary-color: #4CAF50;    /* Muted Green (Main brand color) */
+  --primary-dark: #388E3C;     /* Darker green for hover/active states */
+  --accent-color: #007BFF;     /* Blue for general links/CTAs (better contrast than original blue) */
+  --light-gray: #f0f0f0;       /* Lighter background for footers/separators */
+  --border-color: #ddd;        /* Standard border color */
+  --dark-text: #333;           /* Main body text color */
+  --secondary-text: #555;      /* Footer/muted text color */
+}
+
+/* 0. Essential Reset and Base Settings (Added Box-Sizing) */
+*, *::before, *::after {
+  box-sizing: border-box; /* Crucial: Ensures padding/borders don't affect element width */
 }
 
 body {
@@ -12,75 +22,103 @@ body {
   line-height: 1.6;
 }
 
+/* 1. Header and Navigation Enhancements */
 header {
   background: var(--primary-color);
   color: white;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.5rem; /* Increased padding */
 }
 
 header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 nav {
   background: white;
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center; /* Centers navigation items */
 }
 
 nav a {
   color: var(--primary-color);
   text-decoration: none;
-  margin: 0 1rem;
-  font-weight: bold;
-  transition: color 0.3s;
+  margin: 0 1.2rem;
+  padding: 0.5rem 0.5rem; /* Added vertical padding for easier clicking */
+  font-weight: 600; /* Bolder */
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
-nav a:hover {
-  color: #388E3C;
+nav a:hover,
+nav a:focus { /* Improved accessibility with focus state */
+  color: var(--primary-dark);
+  border-bottom: 3px solid var(--primary-dark); /* Subtle visual indicator */
 }
 
+nav a[aria-current="page"] { /* Styling for the link that points to the current page */
+    color: var(--primary-dark);
+    border-bottom: 3px solid var(--primary-dark);
+}
+
+/* 2. Main Content and Typography */
 main {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem 1rem;
+  max-width: 900px; /* Slightly wider content area */
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* Increased spacing between sections */
 }
 
 h2 {
-  color: var(--primary-color);
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--light-gray); /* Subtle visual separator */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
+/* 3. General Links and Accessibility */
 a {
-  color: #007BFF;
+  color: var(--accent-color);
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
+  color: var(--primary-dark);
   text-decoration: underline;
+}
+
+a:focus { /* Stronger focus state for keyboard users */
+  outline: 2px dashed var(--primary-color);
+  outline-offset: 2px;
 }
 
 .social-links a {
   display: inline-block;
   margin: 0.5rem;
+  font-size: 1.4rem; /* Makes icons easier to see/tap */
 }
 
+/* 4. Footer */
 footer {
   background: var(--light-gray);
   text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #666;
+  padding: 1.5rem;
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: var(--secondary-text);
+  border-top: 1px solid var(--border-color);
 }
 
+/* 5. Media Queries (Responsiveness) */
 @media (max-width: 600px) {
   nav a {
     display: block;
-    margin: 0.5rem 0;
+    margin: 0.4rem 0;
+    border-bottom: none !important; /* Remove hover/active line on stacked mobile view */
   }
 }
