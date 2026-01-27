@@ -2,30 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Sooraj Sunil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials - Sooraj Sunil</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header><h1>Sooraj Sunil</h1></header>
-  <nav>
+  <header>
+    <h1>Sooraj Sunil</h1>
+  </header>
+
+  <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
-    <a href="testimonials.html">Testimonials</a>
+    <a href="testimonials.html" aria-current="page">Testimonials</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <main>
     <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sunil11@uwindsor.ca">sunil11@uwindsor.ca</a></p>
-      <div class="social-links">
-        <p>
-          <a href="https://github.com/soorajsunil" target="_blank">GitHub</a> |
-          <a href="https://www.linkedin.com/in/sooraj-sunil/" target="_blank">LinkedIn</a> |
-          <a href="https://scholar.google.com/citations?user=mX2uugYAAAAJ" target="_blank">Google Scholar</a> | 
-          <a href="https://ieeexplore.ieee.org/author/37089675951" target="_blank">IEEE Profile</a> | 
-          <a href="https://orcid.org/0009-0005-5185-8802" target="_blank">ORCiD</a>
-        </p>
-      </div>
+      <h2>What People Say</h2>
+      <p>
+        A collection of feedback from colleagues, professors, and collaborators I have worked with during my academic and professional career.
+      </p>
+
+      <article class="testimonial">
+        <blockquote>
+          "Sooraj demonstrated exceptional analytical skills during his research on Li-ion battery control systems. His ability to bridge theoretical concepts with practical application is impressive."
+        </blockquote>
+        <cite>
+          &mdash; <strong>Dr. [Name]</strong><br>
+          Professor, University of Windsor
+        </cite>
+      </article>
+
+      <hr />
+
+      <article class="testimonial">
+        <blockquote>
+         Hello
+        Nice paper.
+        Your "Historical Review on Piecewise Linear Approximation " is particularly deep.I did not know about Stone's work.
+        I am surprised you dont method SWAB [a], which is probably the most used PLA algorithm in practice, at least a thousand papers use it.
+        It seems like you are using linear interpolation [c], I (based on 25 years experience on hundreds of datasets) suggest you consider regression (it is more robust to noise).
+        If you want to show off PLA, one cool idea is to do clustering, classification, motif discovery etc directly on the PLA representation. In [v] I show some examples...
+
+          best wishes
+          eamonn 
+        </blockquote>
+        <cite>
+          &mdash; <strong>[Name]</strong><br>
+          Former Supervisor / Colleague
+        </cite>
+      </article>
+      
+      <hr />
+
+      <article class="testimonial">
+        <blockquote>
+          "Working with Sooraj on the energy storage project was a seamless experience. He communicates complex technical details clearly and effectively."
+        </blockquote>
+        <cite>
+          &mdash; <strong>[Name]</strong><br>
+          Project Partner
+        </cite>
+      </article>
+
     </section>
+  </main>
+
+  <footer>
+    <p> 2025 Sooraj Sunil. </p>
+  </footer>
 </body>
 </html>
