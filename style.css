@@ -1,12 +1,17 @@
 :root {
-  /* Color Palette Refinement */
-  --primary-color: #4CAF50;
-  --primary-dark: #388E3C;
-  --accent-color: #007BFF;
-  --light-gray: #f0f0f0;
-  --border-color: #ddd;
-  --dark-text: #333;
-  --secondary-text: #555;
+  /* Refined Academic Color Palette */
+  --primary-color: #2e7d32; /* A deeper, more professional green */
+  --primary-dark: #1b5e20;
+  --accent-color: #1976d2; /* A complementary, accessible blue for links */
+  --bg-body: #f8f9fa; /* Soft off-white to reduce eye strain */
+  --bg-card: #ffffff;
+  --border-color: #e0e0e0;
+  --text-main: #2c3e50;
+  --text-muted: #546e7a;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --transition: all 0.3s ease;
 }
 
 /* 0. Essential Reset and Base Settings */
@@ -16,101 +21,147 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--dark-text);
-  background-color: white;
-  line-height: 1.5; /* Adjusted for compactness */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 1. Header and Navigation */
 header {
   background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: white;
-  padding: 1rem 1rem; /* Adjusted for smaller height */
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
 }
 
 header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
 }
 
 nav {
-  background: white;
+  background: var(--bg-card);
   padding: 1rem 0;
-  border-bottom: 1px solid var(--border-color);
   text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav a {
-  color: var(--primary-color);
+  color: var(--text-muted);
   text-decoration: none;
-  margin: 0 1.2rem;
-  padding: 0.5rem 0.5rem;
+  margin: 0 1rem;
+  padding: 0.5rem 0.2rem;
   font-weight: 600;
-  transition: color 0.3s, border-bottom 0.3s;
+  transition: var(--transition);
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
 }
 
 nav a:hover,
-nav a:focus {
-  color: var(--primary-dark);
-  border-bottom: 3px solid var(--primary-dark);
-}
-
+nav a:focus,
 nav a[aria-current="page"] {
-    color: var(--primary-dark);
-    border-bottom: 3px solid var(--primary-dark);
+  color: var(--primary-dark);
 }
 
-/* 2. Main Content and Typography */
+nav a:hover::after,
+nav a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* 2. Main Content and Layout */
 main {
-  max-width: 800px; /* Adjusted: Narrower central column */
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
 section {
-  margin-bottom: 2rem; /* Adjusted: Reduced vertical space between sections */
+  background: var(--bg-card);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
 }
 
 h2 {
   color: var(--primary-dark);
-  border-bottom: 2px solid var(--light-gray);
+  border-bottom: 2px solid var(--bg-body);
   padding-bottom: 0.5rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
 }
 
-/* 3. Hero Section Layout (Flexbox for side-by-side) */
-.hero {
-    padding: 30px 0; /* Adjusted: Reduced vertical padding */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px; /* Adjusted: Reduced horizontal gap */
+/* 3. Specific Component Styling (Images & Welcome) */
+.welcome-section {
+  text-align: center; /* Centers the image and welcome text */
 }
 
-.hero-text {
-    flex: 2;
-    max-width: 60%;
+.profile-pic {
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  border: 4px solid var(--bg-body);
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
-.hero-image {
-    flex: 1;
-    max-width: 40%;
+.profile-pic:hover {
+  transform: scale(1.02);
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1.5rem;
 }
 
-/* 4. General Links and Accessibility (No changes here) */
+/* 4. Publications List */
+.publication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.publication-list li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--bg-body);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: var(--transition);
+}
+
+.publication-list li:hover {
+  background: #f0f4f2;
+  transform: translateX(5px);
+}
+
+/* 5. General Links and Socials */
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: var(--transition);
 }
 
 a:hover {
@@ -120,44 +171,66 @@ a:hover {
 
 a:focus {
   outline: 2px dashed var(--primary-color);
-  outline-offset: 2px;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .social-links a {
   display: inline-block;
-  margin: 0.5rem;
-  font-size: 1.4rem;
+  margin: 0 0.75rem;
+  font-weight: 500;
 }
 
-/* 5. Footer */
+/* 6. Footer */
 footer {
-  background: var(--light-gray);
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem; /* Adjusted: Reduced space above footer */
-  font-size: 0.85rem;
-  color: var(--secondary-text);
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
   border-top: 1px solid var(--border-color);
 }
 
-/* 6. Media Queries (Responsiveness) */
+/* 7. Media Queries (Responsiveness) */
 @media (max-width: 768px) {
-    /* Stacks hero elements on small screens */
-    .hero {
-        flex-direction: column; 
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .hero-text, .hero-image {
-        max-width: 100%;
-    }
+  main {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+
+  header {
+    padding: 1.5rem 1rem;
+  }
 }
 
 @media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
+
   nav a {
-    display: block;
-    margin: 0.4rem 0;
-    border-bottom: none !important;
+    margin: 0.2rem 1rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  nav a::after {
+    display: none; /* Disable animated underline on mobile */
+  }
+
+  nav a:last-child {
+    border-bottom: none;
   }
 }
