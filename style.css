@@ -1,9 +1,8 @@
 :root {
-  /* Refined Academic Color Palette */
-  --primary-color: #2e7d32; /* A deeper, more professional green */
+  --primary-color: #2e7d32; 
   --primary-dark: #1b5e20;
-  --accent-color: #1976d2; /* A complementary, accessible blue for links */
-  --bg-body: #f8f9fa; /* Soft off-white to reduce eye strain */
+  --accent-color: #1976d2; 
+  --bg-body: #f8f9fa; 
   --bg-card: #ffffff;
   --border-color: #e0e0e0;
   --text-main: #2c3e50;
@@ -111,7 +110,6 @@ h2 {
   font-size: 1.75rem;
 }
 
-/* 3. Specific Component Styling (Images & Welcome) */
 .welcome-section {
   text-align: center; /* Centers the image and welcome text */
 }
@@ -157,7 +155,6 @@ figcaption {
   transform: translateX(5px);
 }
 
-/* 5. General Links and Socials */
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -186,7 +183,6 @@ a:focus {
   font-weight: 500;
 }
 
-/* 6. Footer */
 footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -197,7 +193,6 @@ footer {
   border-top: 1px solid var(--border-color);
 }
 
-/* 7. Media Queries (Responsiveness) */
 @media (max-width: 768px) {
   main {
     padding: 0 1rem;
@@ -235,7 +230,6 @@ footer {
   }
 }
 
-/* 8. Contact Form */
 form {
   max-width: 600px;
   margin: 1.5rem auto;
@@ -297,7 +291,6 @@ form button[type="submit"]:focus {
   box-shadow: var(--shadow-md);
 }
 
-/* 9. Gallery Grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
