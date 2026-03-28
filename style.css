@@ -314,8 +314,8 @@ form button[type="submit"]:focus {
 
 .gallery-grid img {
   width: 100%;
-  height: 200px; /* Forces all images to the same height */
-  object-fit: cover; /* Prevents stretching */
+  height: auto; /* Changed from 200px to auto */
+  /* Removed object-fit entirely */
   border-radius: calc(var(--radius) - 2px);
   display: block;
 }
