@@ -1,331 +1,125 @@
-:root {
-  --primary-color: #2e7d32; 
-  --primary-dark: #1b5e20;
-  --accent-color: #1976d2; 
-  --bg-body: #f8f9fa; 
-  --bg-card: #ffffff;
-  --border-color: #e0e0e0;
-  --text-main: #2c3e50;
-  --text-muted: #546e7a;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --radius: 8px;
-  --transition: all 0.3s ease;
+/* Update your Header CSS to support the new tagline */
+header p.tagline {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.9;
 }
 
-/* 0. Essential Reset and Base Settings */
-*, *::before, *::after {
-  box-sizing: border-box; 
+/* --------------------------------------
+   New Hero Layout (Side-by-side)
+   -------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: left; /* Override the old center alignment */
 }
 
-body {
+.hero-image {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text-main);
-  background-color: var(--bg-body);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* 1. Header and Navigation */
-header {
-  background: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.2rem;
-  letter-spacing: 0.5px;
-}
-
-nav {
-  background: var(--bg-card);
-  padding: 1rem 0;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  margin: 0 1rem;
-  padding: 0.5rem 0.2rem;
-  font-weight: 600;
-  transition: var(--transition);
-  position: relative;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: var(--transition);
-}
-
-nav a:hover,
-nav a:focus,
-nav a[aria-current="page"] {
-  color: var(--primary-dark);
-}
-
-nav a:hover::after,
-nav a[aria-current="page"]::after {
-  width: 100%;
-}
-
-/* 2. Main Content and Layout */
-main {
-  max-width: 850px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-
-section {
-  background: var(--bg-card);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-color);
-}
-
-h2 {
-  color: var(--primary-dark);
-  border-bottom: 2px solid var(--bg-body);
-  padding-bottom: 0.5rem;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.75rem;
-}
-
-.welcome-section {
-  text-align: center; /* Centers the image and welcome text */
+  flex-shrink: 0;
 }
 
 .profile-pic {
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-md);
   border: 4px solid var(--bg-body);
-  margin-bottom: 0.5rem;
   transition: transform 0.3s ease;
 }
 
-.profile-pic:hover {
-  transform: scale(1.02);
+.hero-text h2 {
+  margin-top: 0;
 }
 
-figcaption {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-style: italic;
-  margin-bottom: 1.5rem;
-}
-
-/* 4. Publications List */
-.publication-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.publication-list li {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background: var(--bg-body);
-  border-left: 4px solid var(--primary-color);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  transition: var(--transition);
-}
-
-.publication-list li:hover {
-  background: #f0f4f2;
-  transform: translateX(5px);
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-a:hover {
-  color: var(--primary-dark);
-  text-decoration: underline;
-}
-
-a:focus {
-  outline: 2px dashed var(--primary-color);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
-
-.social-links {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.social-links a {
+/* --------------------------------------
+   Button Styling
+   -------------------------------------- */
+.btn {
   display: inline-block;
-  margin: 0 0.75rem;
-  font-weight: 500;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  background: var(--bg-card);
-  border-top: 1px solid var(--border-color);
-}
-
-@media (max-width: 768px) {
-  main {
-    padding: 0 1rem;
-    margin: 1rem auto;
-  }
-  
-  section {
-    padding: 1.5rem;
-  }
-
-  header {
-    padding: 1.5rem 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 0;
-  }
-
-  nav a {
-    margin: 0.2rem 1rem;
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  nav a::after {
-    display: none; /* Disable animated underline on mobile */
-  }
-
-  nav a:last-child {
-    border-bottom: none;
-  }
-}
-
-form {
-  max-width: 600px;
-  margin: 1.5rem auto;
-  padding: 2rem;
-  background: var(--bg-body);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-}
-
-form label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--text-main);
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  background-color: var(--bg-card);
-  color: var(--text-main);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15); /* Soft green glow on focus */
-}
-
-form button[type="submit"] {
-  display: block;
-  width: 100%;
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   color: white;
-  padding: 0.85rem;
-  border: none;
+  padding: 0.6rem 1.2rem;
   border-radius: var(--radius);
-  font-size: 1.1rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
+  margin-top: 1rem;
+  text-decoration: none;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-form button[type="submit"]:hover,
-form button[type="submit"]:focus {
-  background: var(--primary-dark);
+.btn:hover, .btn:focus {
+  background-color: var(--primary-dark);
+  color: white;
+  text-decoration: none;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+/* --------------------------------------
+   Timeline Layout for Academics
+   -------------------------------------- */
+.timeline {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 1.5rem;
+  margin-left: 1rem;
 }
 
-.gallery-grid figure {
-  margin: 0;
-  background: var(--bg-body);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  padding: 0.5rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
 }
 
-.gallery-grid figure:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
-.gallery-grid img {
-  width: 100%;
-  height: auto; /* Changed from 200px to auto */
-  /* Removed object-fit entirely */
-  border-radius: calc(var(--radius) - 2px);
+/* Create the dot on the timeline */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.95rem; /* Aligns dot with the border */
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--bg-card);
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+.timeline-item h3 {
+  margin: 0 0 0.2rem 0;
+  color: var(--primary-dark);
+  font-size: 1.2rem;
+}
+
+.institution {
   display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
 }
 
-.gallery-grid figcaption {
-  text-align: center;
-  padding-top: 0.75rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
-  color: var(--text-main);
-  font-style: normal;
-  font-weight: 500;
+.timeline-item p {
+  margin: 0;
+}
+
+/* --------------------------------------
+   Mobile Adjustments
+   -------------------------------------- */
+@media (max-width: 768px) {
+  /* Stack the hero section on smaller screens */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .timeline {
+    margin-left: 0.5rem;
+  }
 }
