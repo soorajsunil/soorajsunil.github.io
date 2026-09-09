@@ -1,19 +1,132 @@
-/* Update your Header CSS to support the new tagline */
-header p.tagline {
-  margin: 0.5rem 0 0;
-  font-size: 1.1rem;
-  font-weight: 300;
-  opacity: 0.9;
+:root {
+  /* Fresh Slate & Blue Theme */
+  --primary-color: #2563eb; 
+  --primary-dark: #1e40af;
+  --header-bg: #0f172a;
+  --header-text: #f8fafc;
+  --bg-body: #f1f5f9; 
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #334155;
+  --text-muted: #64748b;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --radius: 12px; /* Slightly softer corners */
+  --transition: all 0.25s ease-in-out;
 }
 
-/* --------------------------------------
-   New Hero Layout (Side-by-side)
-   -------------------------------------- */
+/* Essential Reset and Base Settings */
+*, *::before, *::after {
+  box-sizing: border-box; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header and Navigation */
+header {
+  background: var(--header-bg);
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: var(--header-text);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+header p.tagline {
+  margin: 0.5rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: #cbd5e1;
+}
+
+nav {
+  background: var(--bg-card);
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 0 1.5rem;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+nav a:hover,
+nav a:focus,
+nav a[aria-current="page"] {
+  color: var(--primary-color);
+}
+
+nav a:hover::after,
+nav a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* Main Content and Layout */
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+h2 {
+  color: var(--header-bg);
+  border-bottom: 2px solid var(--bg-body);
+  padding-bottom: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  letter-spacing: -0.5px;
+}
+
+/* Hero Layout */
 .hero {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  text-align: left; /* Override the old center alignment */
+  gap: 3rem;
 }
 
 .hero-image {
@@ -27,80 +140,114 @@ header p.tagline {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-md);
-  border: 4px solid var(--bg-body);
+  border: 4px solid var(--bg-card);
   transition: transform 0.3s ease;
 }
 
-.hero-text h2 {
-  margin-top: 0;
+.profile-pic:hover {
+  transform: scale(1.03);
 }
 
-/* --------------------------------------
-   Button Styling
-   -------------------------------------- */
+.hero-text h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+/* NEW: Social Links Styling (The "Pills") */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  display: inline-block;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Call to Action Button (CV) */
 .btn {
   display: inline-block;
-  background-color: var(--primary-color);
+  background-color: var(--primary-dark);
   color: white;
-  padding: 0.6rem 1.2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   font-weight: 600;
-  margin-top: 1rem;
   text-decoration: none;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
 .btn:hover, .btn:focus {
-  background-color: var(--primary-dark);
+  background-color: var(--primary-color);
   color: white;
-  text-decoration: none;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-/* --------------------------------------
-   Timeline Layout for Academics
-   -------------------------------------- */
+/* Timeline Layout */
 .timeline {
-  border-left: 3px solid var(--primary-color);
+  border-left: 3px solid var(--border-color);
   padding-left: 1.5rem;
   margin-left: 1rem;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .timeline-item:last-child {
   margin-bottom: 0;
 }
 
-/* Create the dot on the timeline */
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -1.95rem; /* Aligns dot with the border */
-  top: 0.3rem;
-  width: 12px;
-  height: 12px;
-  background-color: var(--bg-card);
-  border: 3px solid var(--primary-color);
+  left: -2rem; 
+  top: 0.35rem;
+  width: 14px;
+  height: 14px;
+  background-color: var(--primary-color);
+  border: 3px solid var(--bg-card);
   border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--border-color);
 }
 
 .timeline-item h3 {
-  margin: 0 0 0.2rem 0;
-  color: var(--primary-dark);
-  font-size: 1.2rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--header-bg);
+  font-size: 1.25rem;
 }
 
 .institution {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
@@ -108,18 +255,47 @@ header p.tagline {
   margin: 0;
 }
 
-/* --------------------------------------
-   Mobile Adjustments
-   -------------------------------------- */
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-  /* Stack the hero section on smaller screens */
   .hero {
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
   }
   
+  .social-links {
+    justify-content: center;
+  }
+  
   .timeline {
     margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
+  nav a {
+    margin: 0.2rem 1rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  nav a::after {
+    display: none;
+  }
+  nav a:last-child {
+    border-bottom: none;
   }
 }
