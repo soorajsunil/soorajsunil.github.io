@@ -299,3 +299,69 @@ footer {
     border-bottom: none;
   }
 }
+
+/* --------------------------------------
+   News & Media Page Styles
+   -------------------------------------- */
+.news-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-card {
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--primary-color);
+}
+
+.news-card:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--primary-color);
+  background: var(--bg-card);
+}
+
+.news-date {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.news-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.news-card h3 a {
+  color: var(--header-bg);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.news-card h3 a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.news-source {
+  display: block;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--primary-dark);
+  margin-bottom: 0.75rem;
+}
+
+.news-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-main);
+}
