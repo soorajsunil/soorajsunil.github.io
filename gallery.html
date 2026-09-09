@@ -4,28 +4,225 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery - Sooraj Sunil</title>
-  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* 1. Base Styles (Matching your Home Page) */
+    :root {
+      --primary-color: #2563eb; 
+      --primary-dark: #1e40af;
+      --header-bg: #0f172a;
+      --header-text: #f8fafc;
+      --bg-body: #f1f5f9; 
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 12px;
+      --transition: all 0.25s ease-in-out;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box; 
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--header-bg);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: var(--header-text);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    header p.tagline {
+      margin: 0.5rem 0 0;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #cbd5e1;
+    }
+
+    nav {
+      background: var(--bg-card);
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 1.5rem;
+      padding: 0.5rem 0;
+      font-weight: 600;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    nav a:hover, nav a:focus, nav a[aria-current="page"] {
+      color: var(--primary-color);
+    }
+
+    nav a:hover::after, nav a[aria-current="page"]::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 1000px; /* Slightly wider for the gallery */
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    h2 {
+      color: var(--header-bg);
+      border-bottom: 2px solid var(--bg-body);
+      padding-bottom: 0.75rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
+
+    /* 2. Gallery Specific Styles */
+    .gallery-grid {
+      display: grid;
+      /* Automatically fit as many 280px columns as possible */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .gallery-grid figure {
+      margin: 0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 0.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-grid figure:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 220px; /* This locks the height so they aren't huge */
+      object-fit: cover; /* This prevents the images from squishing */
+      border-radius: calc(var(--radius) - 4px);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-grid figcaption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.4;
+      margin-top: auto; /* Pushes the text to the bottom evenly */
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+      }
+      nav a {
+        margin: 0.2rem 1rem;
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      nav a::after {
+        display: none;
+      }
+      nav a:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header><h1>Sooraj Sunil</h1></header>
-  <nav>
+  <header>
+    <h1>Sooraj Sunil</h1>
+    <p class="tagline">PhD Candidate in Electrical & Computer Engineering</p>
+  </header>
+
+  <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <main>
     <section>
       <h2>Gallery</h2>
+      
       <div class="gallery-grid">
-        
-<figure>
+        <figure>
           <img src="media/batteryPack.jpg" alt="Two battery packs: one spot welded and one using mechanical bus bars">
           <figcaption>Two methods of battery pack construction: spot welding and mechanical bus bars.</figcaption>
-          </figure>
+        </figure>
 
         <figure>
-        <img src="media/fsae_pack.jpg" alt="A custom EV battery pack being dismantled">
-        <figcaption>Dismantling a custom EV battery pack built for a student racing competition after a thermal runaway event.</figcaption>
+          <img src="media/fsae_pack.jpg" alt="A custom EV battery pack being dismantled">
+          <figcaption>Dismantling a custom EV battery pack built for a student racing competition after a thermal runaway event.</figcaption>
         </figure>
 
         <figure>
@@ -38,13 +235,17 @@
           <figcaption>Battery cells harvested from a 2018 MacBook Pro for second-life testing.</figcaption>
         </figure>
 
-         <figure>
+        <figure>
           <img src="media/recycle_battery.JPG" alt="A large collection of recycled battery cells">
           <figcaption>Hundreds of battery cells recycled during my PhD days.</figcaption>        
         </figure>
-
       </div>
+      
     </section>
   </main>
+  
+  <footer>
+    <p>&copy; 2026 Sooraj Sunil</p>
+  </footer>
 </body>
 </html>
